@@ -1,0 +1,23 @@
+[project]
+name = "vehicle_classification_dashboard"
+version = "0.1.0"
+description = "Default template for PDM package"
+authors = [
+    {name = "sendyagung", email = "sendypratama@webmai.umm.ac.id"},
+]
+dependencies = [
+    "streamlit==1.37.0",
+    "tensorflow>=2.20.0",
+    "numpy",
+    "pillow",
+    "matplotlib",
+    "scikit-learn>=1.7.2",
+    "joblib>=1.5.3",
+]
+requires-python = ">=3.10"
+readme = "README.md"
+license = {text = "MIT"}
+
+
+[tool.pdm]
+distribution = false
