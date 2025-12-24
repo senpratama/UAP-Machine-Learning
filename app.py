@@ -150,7 +150,7 @@ with tab2:
             "F1-Score": [0.80, 0.63, 0.83, 0.73, 0.49]
         }
         acc_text = "73%"
-        cm_path, graph_path = "assets/matrix cnn.png", "assets/grafik L&A cnn.png"
+        cm_path, graph_path = "assets/Confusion_Matrix_CNN.png", "assets/Accuracy_Loss_CNN.png"
     elif model_choice == "MobileNetV2 (Transfer Learning)":
         report_data = {
             "Class": ["bus", "car", "motorcycle", "train_vehicle", "truck"],
@@ -159,7 +159,7 @@ with tab2:
             "F1-Score": [0.92, 0.81, 0.99, 0.92, 0.79]
         }
         acc_text = "90%"
-        cm_path, graph_path = "assets/matrix mobilenet.png", "assets/grafik L&A mobilenet.png"
+        cm_path, graph_path = "assets/Confusion_Matrix_MobileNetV2.png", "assets/Accuracy_Loss_MobileNetV2.png"
     else: # ResNet50
         report_data = {
             "Class": ["bus", "car", "motorcycle", "train_vehicle", "truck"],
@@ -168,7 +168,7 @@ with tab2:
             "F1-Score": [0.52, 0.00, 0.72, 0.55, 0.31]
         }
         acc_text = "51%"
-        cm_path, graph_path = "assets/matrix resnet.png", "assets/grafik L&A resnet.png"
+        cm_path, graph_path = "assets/Confusion_Matrix_ResNet50.png", "assets/Accuracy_Loss_ResNet50.png"
 
     st.table(report_data)
     st.success(f"**Akurasi Keseluruhan ({model_choice}): {acc_text}**")
