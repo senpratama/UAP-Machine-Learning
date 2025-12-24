@@ -1,8 +1,8 @@
 # 🚗 Vehicle Classification Dashboard (UAP Machine Learning)
 
-**Nama:** [Muhammad Sendy Agung Pratama]  
-**NIM:** [202210370311022]  
-**Kelas:** [Machine Learning C]
+**Nama:** Muhammad Sendy Agung Pratama
+**NIM:** 202210370311022
+**Kelas:** Machine Learning C
 
 ---
 
@@ -36,29 +36,29 @@ Dataset berasal dari Kaggle: [5 Vehicles for Multicategory Classification](https
 | **Data Split** | 80% Train, 20% Val | Pembagian data untuk pelatihan dan validasi performa. |
 
 ### Arsitektur Model
-1. **CNN Scratch**: Model manual dengan 3 lapis Conv2D (32, 64, 128 filter) dan Dense layer 512 neuron.
+1. **CNN Base**: Model manual dengan 3 lapis Conv2D (32, 64, 128 filter) dan Dense layer 512 neuron.
 2. **MobileNetV2**: *Transfer Learning* dengan pre-trained weights ImageNet dan Dropout 0.5 untuk mencegah overfitting.
 3. **ResNet50**: *Transfer Learning* dengan metode freezing layers pada base model.
 
 ---
 
-## 🔍 Hasil dan Analisis 🔍
+## 🔍 Hasil Analisis Perbandingan Model 🔍
+Berdasarkan hasil pengujian pada file notebook, berikut adalah ringkasan performanya:
 
-### Evaluasi Performa Model
-| Nama Model | Akurasi (Validation) | Analisis Singkat |
+| Nama Model | Akurasi | Hasil Analisis |
 | :--- | :--- | :--- |
-| **CNN Scratch** | ~73% | Stabil namun terbatas pada fitur yang sangat kompleks. |
+| **CNN Base** | ~73% | Stabil namun terbatas pada fitur yang sangat kompleks. |
 | **MobileNetV2** | **~90%** | **Best Model.** Akurasi tertinggi dan konvergensi tercepat. |
 | **ResNet50** | ~51% | Performa kurang optimal pada dataset ini, butuh tuning lebih lanjut. |
 
 ### Visualisasi Performa
 #### 📈 Learning Curves (Akurasi & Loss)
 * **MobileNetV2** ![MobileNetV2 Plot](assets/Accuracy_Loss_MobileNetV2.png)
-* **CNN Scratch** ![CNN Plot](assets/Accuracy_Loss_CNN.png)
+* **CNN Base** ![CNN Plot](assets/Accuracy_Loss_CNN.png)
 * **ResNet50** ![ResNet50 Plot](assets/Accuracy_Loss_ResNet50.png)
 
 #### 🟢 Confusion Matrix
-| MobileNetV2 | CNN Scratch | ResNet50 |
+| MobileNetV2 | CNN Base | ResNet50 |
 | :---: | :---: | :---: |
 | ![CM MobileNet](assets/Confusion_Matrix_MobileNetV2.png) | ![CM CNN](assets/Confusion_Matrix_CNN.png) | ![CM ResNet](assets/Confusion_Matrix_ResNet50.png) |
 
@@ -70,16 +70,29 @@ Aplikasi web ini dirancang untuk memberikan antarmuka interaktif dalam melakukan
 ### Tampilan Dashboard:
 1. **Dashboard Utama (Prediksi)**: Area unggah gambar dan penampilan hasil prediksi.  
    ![Dashboard Utama](assets/Dashboard_1.png)
-
-2. **Kontrol Panel (Setting)**: Pengaturan fungsionalitas dan pemilihan parameter sistem.  
+2. **Kontrol Panel (Setting Model)**: Pengaturan fungsionalitas dan pemilihan parameter sistem.  
    ![Kontrol Panel](assets/Dashboard_3.png) 
-
 3. **Sidebar & Info**: Menu navigasi model dan informasi detail pengembang.  
    ![Dashboard Sidebar](assets/Dashboard_2.png)
 
 ---
 
-## 🔧 Langkah Instalasi 🔧
-1. **Aktifkan Virtual Environment**:
-   ```bash
-   source .venv/Scripts/activate  # Windows: .venv\Scripts\activate
+## 🔧 Langkah Instalasi & Penggunaan 🔧
+
+### Software Utama
+Proyek ini dapat dijalankan menggunakan **Google Colab** dan **VSCode**. Pastikan **Python 3.10.16** telah terinstal di sistem Anda.
+
+### Dependensi
+Dependensi yang diperlukan untuk menjalankan proyek ini telah disediakan dalam file `requirements.txt`. Anda dapat menginstal seluruh dependensi dengan salah satu cara berikut:
+
+**Instalasi Langsung & Menjalankan Sistem**
+Jalankan perintah berikut di terminal:
+```bash
+# Mengaktifkan Virtual Environment (Opsional)
+source .venv/Scripts/activate  # Windows: .venv\Scripts\activate
+
+# Instalasi Library
+pip install -r requirements.txt
+
+# Menjalankan Aplikasi
+streamlit run app.py
